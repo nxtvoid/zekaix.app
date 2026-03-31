@@ -1,0 +1,31 @@
+{
+  "name": "@zekaix/db",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "db:generate": "dotenvx run --quiet -- prisma generate",
+    "db:push": "dotenvx run --quiet -- prisma db push",
+    "db:studio": "dotenvx run --quiet -- prisma studio",
+    "db:migrate": "dotenvx run --quiet -- prisma migrate dev --name",
+    "db:reset": "dotenvx run --quiet -- prisma migrate reset",
+    "lint": "biome lint .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "dotenv-cli": "^11.0.0",
+    "prisma": "^7.6.0",
+    "typescript": "^6.0.2",
+    "@zekaix/typescript-config": "*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

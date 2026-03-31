@@ -1,0 +1,10 @@
+{
+  "extends": "@zekaix/typescript-config/base.json",
+  "include": ["."],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

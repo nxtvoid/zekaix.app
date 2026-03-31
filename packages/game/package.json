@@ -1,0 +1,28 @@
+{
+  "name": "@zekaix/game",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "biome lint .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zekaix/auth": "workspace:*",
+    "@zekaix/db": "workspace:*",
+    "@zekaix/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@zekaix/typescript-config": "workspace:*",
+    "socket.io": "^4.8.3"
+  },
+  "exports": {
+    "./client": "./src/client/index.ts",
+    "./types": "./src/types/index.ts",
+    "./queries": "./src/queries/index.ts",
+    "./mutations": "./src/mutations/index.ts",
+    "./constants": "./src/constants/index.ts",
+    "./engine": "./src/engine/index.ts",
+    "./canvas": "./src/canvas/index.ts"
+  }
+}

@@ -1,0 +1,30 @@
+model Game {
+    id             String  @id @default(uuid())
+    shardIndex     Int     @default(0)
+    shardRegion    String  @default("global-1")
+    isPrimaryShard Boolean @default(false)
+
+    maxPlayers Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    players GamePlayers[]
+
+    @@index([shardRegion, shardIndex])
+    @@map("game")
+}
+
+model GamePlayers {
+    gameId   String
+    playerId String
+
+    isHost   Boolean  @default(false)
+    joinedAt DateTime @default(now())
+
+    game   Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+    player User @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+    @@id([gameId, playerId])
+    @@map("game_players")
+}

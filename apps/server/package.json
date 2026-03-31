@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "dotenvx run --quiet -- bun --watch run src/index.ts",
+    "build": "dotenvx run --quiet -- bun build ./src/index.ts --outdir ./dist --target node",
+    "start": "dotenvx run --quiet -- bun run dist/index.js",
+    "test": "bun test",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@zekaix/auth": "workspace:*",
+    "@zekaix/db": "workspace:*",
+    "@zekaix/game": "workspace:*",
+    "@zekaix/utils": "workspace:*",
+    "better-auth": "^1.5.6",
+    "posthog-node": "^5.28.8",
+    "redis": "^5.11.0",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.5.0",
+    "@zekaix/typescript-config": "workspace:*"
+  }
+}
