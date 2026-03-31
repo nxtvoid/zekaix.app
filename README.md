@@ -49,3 +49,35 @@ Vercel is used for:
 ## Hackathon
 
 This repository was built specifically for the [CubePath Hackathon 2026](https://github.com/midudev/hackaton-cubepath-2026). The backend infrastructure runs on CubePath, while the frontend is deployed on Vercel.
+
+---
+
+## Local Development
+
+If you want to run the project locally for review or development:
+
+### 1. Configure environment variables
+
+Copy the example environment files and create your local `.env` files from them:
+
+- `apps/server/.example.env`
+- `apps/web/.example.env`
+- `packages/db/.example.env`
+
+### 2. Install dependencies
+
+```bash
+bun i
+```
+
+### 3. Run database migrations
+
+```bash
+bun turbo db:push
+```
+
+### 4. Start the project
+
+```bash
+bun turbo dev
+```
